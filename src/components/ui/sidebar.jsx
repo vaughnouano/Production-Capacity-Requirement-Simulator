@@ -585,10 +585,8 @@ function SidebarMenuSkeleton({
   showIcon = false,
   ...props
 }) {
-  // Random width between 50 to 90%.
-  const [width] = React.useState(() => {
-    return `${Math.floor(Math.random() * 40) + 50}%`
-  })
+  // Use a stable width so the skeleton does not rely on a non-secure PRNG.
+  const [width] = React.useState("70%")
 
   return (
     <div
