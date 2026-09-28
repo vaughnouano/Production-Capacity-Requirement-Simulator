@@ -3,7 +3,7 @@ import { AppSidebar } from "@/components/ui/app-sidebar";
 
 export default function AppShell({ children }) {
   return (
-    <SidebarProvider>
+    <SidebarProvider className="flex flex-row">
       <AppSidebar />
       <main className="flex-1">
         <SidebarTrigger />
