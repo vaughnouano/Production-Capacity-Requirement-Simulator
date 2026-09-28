@@ -15,7 +15,7 @@ import SubcontractorForm from "@/features/capacity-calculator/components/Subcont
 
 export default function InternalProductionForm() {
   return (
-    <Card className="w-[550px] h-fit p-0">
+    <Card className="max-w-[550px] h-fit p-0">
       {/*  */}
       <CardHeader className="border-b p-4">
         <CardTitle>Calculator</CardTitle>

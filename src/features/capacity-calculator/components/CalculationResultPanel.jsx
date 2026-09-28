@@ -11,14 +11,14 @@ import SummaryText from "@/features/capacity-calculator/components/SummaryText";
 
 export default function CalculationResultPanel() {
   return (
-    <Card className="w-[550px] h-fit">
+    <Card className="max-w-[550px] w-full h-fit">
       <CardHeader>
         <CardTitle>Calculation Result</CardTitle>
         <CardAction>Icon</CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-4 border-t p-4 ">
         {/* Estimated Capacity */}
-        <Card className="py-6 px-3 shadow-sm bg-mauve-50">
+        <Card className="w-full py-6 px-3 shadow-sm bg-mauve-50">
           <CardHeader>
             <CardTitle>Estimated Capacity</CardTitle>
             <CardContent className="pt-6 pb-3 px-0 ">
