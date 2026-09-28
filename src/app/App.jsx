@@ -9,7 +9,7 @@ export default function App() {
     <div className={Styles.container}>
       <div className="flex flex-col gap-16 w-full">
         <ProductPeriodHeader />
-        <div className="flex gap-6">
+        <div className="flex justify-center gap-6">
           <InternalProductionForm />
           <CalculationResultPanel />
         </div>
