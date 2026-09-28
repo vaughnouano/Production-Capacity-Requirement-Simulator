@@ -48,10 +48,10 @@ export default function CalculationResultPanel() {
           </Card>
         </div>
         <div className="flex flex-row gap-4">
-          {/* Subcon Capcity */}
+          {/* Subcon capacity */}
           <Card className="w-full h-fit py-3 px-3 shadow-sm bg-mauve-50">
             <CardHeader>
-              <CardTitle className="pt-2">Subcon Capcity</CardTitle>
+              <CardTitle className="pt-2">Subcon capacityy</CardTitle>
               <CardContent className="pt-3 pb-3 px-0">
                 <p className="text-3xl font-medium">5,080</p>
               </CardContent>
@@ -90,7 +90,7 @@ export default function CalculationResultPanel() {
         {/*  */}
       </CardContent>
       {/*  */}
-      <CardFooter className="bg-transparent border-0 bg-mauve-50">
+      <CardFooter className=" border-0 bg-mauve-50">
         <SummaryText />
       </CardFooter>
     </Card>
