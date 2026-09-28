@@ -4,8 +4,7 @@ import AppShell from "./AppShell";
 import ProductPeriodHeader from "@/features/capacity-calculator/components/ProductPeriodHeader";
 import { Separator } from "@/components/ui/separator";
 
-import CreateScenarioForm from "@/features/what-if-scenarios/components/CreateScenarioForm";
-import ScenarioResultPanel from "@/features/what-if-scenarios/components/ScenarioResultPanel";
+import LayoutScenarioComparison from "@/features/what-if-scenarios/components/LayoutScenarioComparison";
 
 export default function App() {
   return (
@@ -15,8 +14,7 @@ export default function App() {
           <ProductPeriodHeader />
           <Separator />
           <div className="flex justify-center gap-6">
-            <CreateScenarioForm />
-            <ScenarioResultPanel />
+            <LayoutScenarioComparison />
           </div>
         </div>
       </div>

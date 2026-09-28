@@ -22,7 +22,7 @@ export default function ScenarioResultPanel(params) {
             <CardTitle>Estimated Capacity</CardTitle>
           </CardHeader>
           <CardContent>
-            D<div></div>
+            <div></div>
             <div>
               <p className="text-3xl px-2 py-1 font-medium">55,080 units</p>
             </div>
@@ -57,7 +57,7 @@ export default function ScenarioResultPanel(params) {
         </div>
       </CardContent>
       {/*  */}
-      <CardFooter className="bg-transparent">
+      <CardFooter className="bg-transparent shadow-lg">
         <Card className="bg-mauve-50 w-full px-1.5">
           <CardContent>
             <div></div>
