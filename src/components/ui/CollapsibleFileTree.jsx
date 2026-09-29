@@ -7,38 +7,28 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-// import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export function CollapsibleFileTree() {
-  const fileTree = [
-    {
-      name: "Vivo TWS Earbuds",
-      items: [
-        { name: "Dashboard" },
-        { name: "Calculator" },
-        { name: "What-if" },
-      ],
-    },
-    {
-      name: "Moto Buds 2 Plus",
-      items: [
-        { name: "Dashboard" },
-        { name: "Calculator" },
-        { name: "What-if" },
-      ],
-    },
-    {
-      name: "boAt - Nirvana X Earbuds",
-      items: [
-        { name: "Dashboard" },
-        { name: "Calculator" },
-        { name: "What-if" },
-      ],
-    },
-  ];
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 
-  const renderItem = (fileItem) => {
+const PAGES = [
+  { name: "Dashboard" },
+  { name: "Calculator" },
+  { name: "What-if" },
+];
+
+export function CollapsibleFileTree({ products = [], onSelect }) {
+  const fileTree = products.map((name) => ({
+    name,
+    items: PAGES,
+  }));
+
+  const renderItem = (fileItem, parentSlug = null) => {
     if ("items" in fileItem) {
+      const productSlug = slugify(fileItem.name);
       return (
         <Collapsible key={fileItem.name}>
           <CollapsibleTrigger
@@ -49,27 +39,31 @@ export function CollapsibleFileTree() {
                 className="group w-full justify-start transition-none hover:bg-accent hover:text-accent-foreground"
               >
                 <ChevronRightIcon className="transition-transform group-data-[state=open]:rotate-90" />
-                {/* <FolderIcon /> */}
                 {fileItem.name}
               </Button>
             }
           />
           <CollapsibleContent className="mt-1 ml-5 style-lyra:ml-4">
             <div className="flex flex-col gap-1">
-              {fileItem.items.map((child) => renderItem(child))}
+              {fileItem.items.map((child) => renderItem(child, productSlug))}
             </div>
           </CollapsibleContent>
         </Collapsible>
       );
     }
+
+    const key = parentSlug
+      ? `${parentSlug}/${slugify(fileItem.name)}`
+      : slugify(fileItem.name);
+
     return (
       <Button
         key={fileItem.name}
         variant="link"
         size="sm"
-        className="w-full justify-start gap-2  text-neutral-500"
+        onClick={() => onSelect?.(key)}
+        className="w-full justify-start gap-2 text-neutral-500"
       >
-        {/* <FileIcon /> */}
         <span>{fileItem.name}</span>
       </Button>
     );
@@ -81,7 +75,7 @@ export function CollapsibleFileTree() {
       size="sm"
     >
       <CardContent>
-        <div className="flex flex-col gap-1 ">
+        <div className="flex flex-col gap-1">
           {fileTree.map((item) => renderItem(item))}
         </div>
       </CardContent>

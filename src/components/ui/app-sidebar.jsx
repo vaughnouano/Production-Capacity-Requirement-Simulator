@@ -7,8 +7,6 @@ import {
   SidebarGroup,
   SidebarHeader,
   SidebarGroupLabel,
-  //   SidebarMenu,
-  //   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 
 import { Button } from "@/components/ui/button";
@@ -19,20 +17,42 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  //   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  Popover,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { CollapsibleFileTree } from "./CollapsibleFileTree";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Field } from "@/components/ui/field";
 
-export function AppSidebar() {
-  //   const [open, setOpen] = React.useState(false);
+export function AppSidebar({ products, onSelect, onAddProduct }) {
+  const [open, setOpen] = React.useState(false);
+  const [name, setName] = React.useState("");
+
+  const handleConfirm = () => {
+    if (!name.trim()) return;
+    onAddProduct?.(name);
+    setName("");
+    setOpen(false);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleConfirm();
+    }
+  };
 
   return (
     <Sidebar className="bg-neutral-50 px-3">
-      {/*  */}
       <SidebarHeader>
         <DropdownMenu>
           <DropdownMenuTrigger
@@ -54,16 +74,36 @@ export function AppSidebar() {
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarHeader>
-      {/*  */}
+
       <SidebarContent>
-        {/*  */}
-        <SidebarGroup>
-          <SidebarGroupLabel>Product</SidebarGroupLabel>
-          <CollapsibleFileTree />
+        <SidebarGroup className="flex flex-col gap-2">
+          <div className="flex justify-between">
+            <SidebarGroupLabel>Product</SidebarGroupLabel>
+            <Popover open={open} onOpenChange={setOpen}>
+              <PopoverTrigger render={<Button variant="ghost" />}>
+                Add
+              </PopoverTrigger>
+              <PopoverContent className="p-4 py-7">
+                <PopoverHeader>
+                  <Field>
+                    <Label>Product Name</Label>
+                    <Input
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      onKeyDown={handleKeyDown}
+                      autoFocus
+                    />
+                    <Button onClick={handleConfirm}>Confirm</Button>
+                  </Field>
+                </PopoverHeader>
+              </PopoverContent>
+            </Popover>
+          </div>
+          <CollapsibleFileTree products={products} onSelect={onSelect} />
         </SidebarGroup>
-        {/*  */}
         <SidebarGroup />
       </SidebarContent>
+
       <SidebarFooter>
         <DropdownMenu>
           <DropdownMenuTrigger
