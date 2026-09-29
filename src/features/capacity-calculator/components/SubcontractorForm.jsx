@@ -20,41 +20,46 @@ export default function SubcontractorForm() {
         </CardAction>
         <CardTitle>Subcon</CardTitle>
       </CardHeader>
-      <CardContent className="flex gap-4">
-        <div className="flex flex-col w-full">
-          <Field>
-            <FieldLabel htmlFor="input1" className="opacity-50">
-              Required Demand
-            </FieldLabel>
-            <Input id="label" />
+      <CardContent className="flex flex-col gap-4">
+        <div className="flex w-full">
+          <Field className="flex flex-row">
+            <Field>
+              <FieldLabel htmlFor="input1" className="opacity-50">
+                Subcontractor Name
+              </FieldLabel>
+              <Input id="label" />
+            </Field>
 
-            <FieldLabel htmlFor="input1" className="opacity-50">
-              Operators (Optional)
-            </FieldLabel>
-            <Input id="label" />
+            <Field>
+              <FieldLabel htmlFor="input1" className="opacity-50">
+                Subcon Capacity
+              </FieldLabel>
+              <Input id="label" />
+            </Field>
 
-            <FieldLabel htmlFor="input1" className="opacity-50">
-              Working Days
-            </FieldLabel>
-            <Input id="label" />
+            <Field>
+              <FieldLabel htmlFor="input1" className="opacity-50">
+                Planning Period
+              </FieldLabel>
+              <Input id="label" />
+            </Field>
           </Field>
         </div>
-        <div className="flex flex-col w-full">
-          <Field>
-            <FieldLabel htmlFor="input1" className="opacity-50">
-              Required Demand
-            </FieldLabel>
-            <Input id="label" />
+        <div className="flex w-full">
+          <Field className="flex flex-row">
+            <Field>
+              <FieldLabel htmlFor="input1" className="opacity-50">
+                Leading Time
+              </FieldLabel>
+              <Input id="label" />
+            </Field>
 
-            <FieldLabel htmlFor="input1" className="opacity-50">
-              Operators (Optional)
-            </FieldLabel>
-            <Input id="label" />
-
-            <FieldLabel htmlFor="input1" className="opacity-50">
-              Working Days
-            </FieldLabel>
-            <Input id="label" />
+            <Field>
+              <FieldLabel htmlFor="input1" className="opacity-50">
+                Notes
+              </FieldLabel>
+              <Input id="label" placeholder="optional" />
+            </Field>
           </Field>
         </div>
       </CardContent>

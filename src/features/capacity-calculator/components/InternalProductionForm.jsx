@@ -19,7 +19,7 @@ export default function InternalProductionForm() {
       {/*  */}
       <CardHeader className="border-b p-4">
         <CardTitle>Calculator</CardTitle>
-        <CardAction>Card Action</CardAction>
+        <CardAction>Icon</CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-4 ">
         {/* ACTIVE - Internal Production */}
