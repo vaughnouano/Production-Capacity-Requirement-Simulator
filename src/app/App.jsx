@@ -24,6 +24,7 @@ export default function App() {
     "vivo-tws-earbuds/calculator",
   );
 
+  // Resolve the display name for the currently active product
   const [productSlug] = activeSection.split("/");
   const activeProductName =
     products.find((p) => slugify(p) === productSlug) ?? null;

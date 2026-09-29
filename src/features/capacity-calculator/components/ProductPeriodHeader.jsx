@@ -27,16 +27,18 @@ const items = [
   { label: "Microchip-300", value: "3" },
 ];
 
-export default function ProductPeriodHeader(params) {
+export default function ProductPeriodHeader({ productName }) {
   const [startDate, setStartDate] = React.useState();
   const [endDate, setEndDate] = React.useState();
+
   return (
     <div className="flex justify-between">
       {/* ==================== LEFT-PANEL ==================== */}
       <div className="flex flex-col gap-6">
-        {/* Header title */}
         <div className="flex flex-col gap-2">
-          <h1 className="text-5xl font-bold">Vivo TWS Earbuds</h1>
+          <h1 className="text-5xl font-bold">
+            {productName ?? "Select a product"}
+          </h1>
           <p className="text-lg text-neutral-400">
             Production Requirement for:
           </p>
