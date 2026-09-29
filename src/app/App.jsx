@@ -23,8 +23,8 @@ export default function App() {
   const [activeSection, setActiveSection] = useState(
     "vivo-tws-earbuds/calculator",
   );
+  const [calculationResult, setCalculationResult] = useState(null);
 
-  // Resolve the display name for the currently active product
   const [productSlug] = activeSection.split("/");
   const activeProductName =
     products.find((p) => slugify(p) === productSlug) ?? null;
@@ -51,7 +51,11 @@ export default function App() {
         <div className="flex flex-col gap-16 w-full">
           <ProductPeriodHeader productName={activeProductName} />
           <Separator />
-          <SectionRouter activeSection={activeSection} />
+          <SectionRouter
+            activeSection={activeSection}
+            calculationResult={calculationResult}
+            onCalculationResultChange={setCalculationResult}
+          />
         </div>
       </div>
     </AppShell>

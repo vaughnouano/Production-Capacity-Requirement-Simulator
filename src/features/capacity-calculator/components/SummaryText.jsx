@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-export default function SummaryText(params) {
+export default function SummaryText({ summary }) {
   return (
     <Card className="w-full">
       <CardHeader>
@@ -8,9 +8,8 @@ export default function SummaryText(params) {
       </CardHeader>
       <CardContent>
         <p>
-          Internal capacity is 45,900 units, with additional 10,000 units from
-          the subcontractor. Total capacity meets the required demand with a
-          surplus of 5,900 units.
+          {summary ??
+            "Enter your production details and click Calculate to see a summary."}
         </p>
       </CardContent>
     </Card>

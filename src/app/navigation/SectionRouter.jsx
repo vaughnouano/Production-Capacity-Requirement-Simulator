@@ -1,6 +1,10 @@
 import { navConfig } from "./navConfig";
 
-export default function SectionRouter({ activeSection }) {
+export default function SectionRouter({
+  activeSection,
+  calculationResult,
+  onCalculationResultChange,
+}) {
   const [, pageSlug] = (activeSection ?? "").split("/");
   const View = navConfig[pageSlug];
 
@@ -12,5 +16,10 @@ export default function SectionRouter({ activeSection }) {
     );
   }
 
-  return <View />;
+  return (
+    <View
+      calculationResult={calculationResult}
+      onCalculationResultChange={onCalculationResultChange}
+    />
+  );
 }
