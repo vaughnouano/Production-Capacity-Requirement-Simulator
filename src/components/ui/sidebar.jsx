@@ -1,4 +1,3 @@
-"use client";
 import * as React from "react"
 import { mergeProps } from "@base-ui/react/merge-props"
 import { useRender } from "@base-ui/react/use-render"
@@ -585,8 +584,10 @@ function SidebarMenuSkeleton({
   showIcon = false,
   ...props
 }) {
-  // Use a stable width so the skeleton does not rely on a non-secure PRNG.
-  const [width] = React.useState("70%")
+  // Random width between 50 to 90%.
+  const [width] = React.useState(() => {
+    return `${Math.floor(Math.random() * 40) + 50}%`
+  })
 
   return (
     <div
